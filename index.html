@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar left-sidebar">
+            <ul class="menu">
+                <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="#calendar"><i class="fas fa-calendar"></i> Calendar</a></li>
+                <li><a href="#tasks"><i class="fas fa-tasks"></i> Tasks</a></li>
+                <li><a href="#file-manager"><i class="fas fa-folder"></i> File Manager</a></li>
+                <li><a href="#analytics"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                <li><a href="#communities"><i class="fas fa-users"></i> Communities</a></li>
+                <li><a href="#integrations"><i class="fas fa-puzzle-piece"></i> Integrations</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#support"><i class="fas fa-question-circle"></i> Support</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search projects, tasks, files, comments...">
+                </div>
+                <div class="user-actions">
+                    <button class="notification-bell"><i class="fas fa-bell"></i></button>
+                    <div class="user-profile">Morgan Oakley</div>
+                    <button class="action-btn"><i class="fas fa-plus"></i> New</button>
+                    <button class="action-btn"><i class="fas fa-upload"></i> Upload</button>
+                    <button class="action-btn"><i class="fas fa-share"></i> Share</button>
+                    <button class="action-btn"><i class="fas fa-clock"></i> Track Time</button>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <section class="your-projects">
+                    <h2>Your Projects</h2>
+                    <div class="project-cards">
+                        <div class="project-card">
+                            <h3>Project Alpha</h3>
+                            <p>Progress: 75%</p>
+                            <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+                        </div>
+                        <div class="project-card">
+                            <h3>Project Beta</h3>
+                            <p>Progress: 30%</p>
+                            <div class="progress-bar"><div class="progress" style="width: 30%;"></div></div>
+                        </div>
+                        <div class="project-card">
+                            <h3>Project Gamma</h3>
+                            <p>Progress: 50%</p>
+                            <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        </div>
+                    </div>
+                </section>
+                <section class="task-management">
+                    <h2>Task Management</h2>
+                    <div class="kanban-board">
+                        <div class="kanban-column">
+                            <h3>To Do</h3>
+                            <div class="kanban-items">
+                                <div class="kanban-item">Task 1</div>
+                                <div class="kanban-item">Task 2</div>
+                            </div>
+                        </div>
+                        <div class="kanban-column">
+                            <h3>In Progress</h3>
+                            <div class="kanban-items">
+                                <div class="kanban-item">Task 3</div>
+                            </div>
+                        </div>
+                        <div class="kanban-column">
+                            <h3>Done</h3>
+                            <div class="kanban-items">
+                                <div class="kanban-item">Task 4</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="calendar-view">
+                    <h2>Calendar</h2>
+                    <div id="calendar"></div>
+                </section>
+                <section class="analytics-widget">
+                    <h2>Analytics</h2>
+                    <canvas id="analyticsChart"></canvas>
+                </section>
+                <section class="recent-activity">
+                    <h2>Recent Activity</h2>
+                    <ul class="activity-feed">
+                        <li class="activity-item">
+                            <span class="activity-icon"><i class="fas fa-tasks"></i></span>
+                            <span class="activity-text">John completed Task A</span>
+                            <span class="activity-time">2 hours ago</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-icon"><i class="fas fa-comment"></i></span>
+                            <span class="activity-text">Sarah commented on Project Beta</span>
+                            <span class="activity-time">4 hours ago</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-icon"><i class="fas fa-file"></i></span>
+                            <span class="activity-text">New file uploaded to Project Gamma</span>
+                            <span class="activity-time">Yesterday</span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        
+        <aside class="sidebar right-sidebar">
+            <section class="announcements">
+                <h3>Announcements</h3>
+                <ul id="announcements-list"></ul>
+            </section>
+            <section class="team-chat">
+                <h3>Team Chat</h3>
+                <div id="chat-messages"></div>
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button id="send-message">Send</button>
+            </section>
+            <section class="quick-access-files">
+                <h3>Quick Access Files</h3>
+                <ul id="file-list"></ul>
+            </section>
+            <section class="file-upload">
+                <h3>Upload New File</h3>
+                <form id="upload-form">
+                    <input type="file" id="file-input" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt">
+                    <button type="submit">Upload</button>
+                </form>
+            </section>
+        </aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
